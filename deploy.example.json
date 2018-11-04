@@ -1,0 +1,58 @@
+{
+  "default": {
+    "workspace": "/tmp/workspace",
+    "rsyncFrom": "/d/tmp/shipit-ikastola/",
+    "key" : "c:/users/yournamehere/.ssh/id_rsa",
+    "repositoryUrl": "git@github.com:namespace/project.git",
+    "ignores" : [
+      ".git",
+      ".idea",
+      ".bowerrc",
+      ".vagrant",
+      "Vagrantfile",
+      "node_modules",
+      "vendor/bower_components",
+      "tmp"
+    ],
+    "keepReleases" : 2,
+    "branch" : "master",
+    "shallowClone" : true,
+    "composer": {
+      "remote": false,
+      "installFlags": ["--no-dev", "--prefer-source"]
+    },
+    "npm": {
+      "remote": false
+    },
+    "bower": {
+      "remote": false
+    },
+    "shared": {
+      "dirs": [
+      ],
+      "files": [
+        ".env"
+      ]
+    },
+    "laravel": {
+      "resetDb": false,
+      "seedDb": false
+    },
+    "php": {
+      "command": "php"
+    }
+  },
+
+  "staging": {
+    "servers": "deploy@staging.example.com",
+    "deployTo": "/var/www/vhosts/example.com/staging.example.com",
+    "url": "http://staging.example.com",
+    "branch": "develop"
+  },
+
+  "production": {
+    "servers": "deploy@example.com",
+    "deployTo": "/var/www/vhosts/example.com/httpdocs",
+    "url": "http://example.com"
+  }
+}
