@@ -44,10 +44,10 @@ module.exports.shipitInit = function (shipit) {
      */
     shipit.on('deployed', function () {
         shipit.start([
-            'artisan-migrate',
+            //'artisan-migrate',
             'artisan-clear',
             'artisan-optimize',
-            'artisan-import-translations',
+            //'artisan-import-translations',
             'artisan-up'
         ]);
     });
@@ -122,7 +122,7 @@ module.exports.shipitInit = function (shipit) {
             + ' && ' + php + ' artisan route:clear '
             + ' && ' + php + ' artisan cache:clear '
             + ' && ' + php + ' artisan config:clear '
-            + ' && ' + php + ' artisan ide-helper:generate '
+            //+ ' && ' + php + ' artisan ide-helper:generate '
         ).then(function(res) {
             shipit.log(res);
         });
@@ -132,7 +132,7 @@ module.exports.shipitInit = function (shipit) {
         var php = shipit.config.php.command;
         return shipit.remote('cd ' + shipit.releasePath
             // + ' && ' + php + ' artisan config:cache ' // Seems to be causing trouble with reading .env in code, CAREFUL
-            + ' && ' + php + ' artisan route:cache '
+            // + ' && ' + php + ' artisan route:cache '
         ).then(function(res) {
             shipit.log(res);
         });
